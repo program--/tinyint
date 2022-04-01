@@ -1,19 +1,25 @@
 Package: tinyint
-Title: What the Package Does (One Line, Title Case)
+Title: Compressed Integers in R
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    c(person(given = "Justin",
+             family = "Singh-Mohudpur",
+             role = c("aut", "cre"),
+             email = "justin@justinsingh.me",
+             comment = c(ORCID = "0000-0002-5233-5799")),
+      person(given = "Aleksey",
+             family = "Demakov",
+             role = "ctb",
+             comment = "Author of C++ Oroch library"))
+Description: Provides a vector abstraction for compressed integers via the 'Oroch' C++ library.
+             These integers are compressed using either bit-packing; bit-packing with frame-of-reference;
+             or bit-packing, frame-of-reference, and patching.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
-LinkingTo:
-    cpp11
+LinkingTo: cpp11
 SystemRequirements: C++11
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3

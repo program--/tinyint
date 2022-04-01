@@ -6,32 +6,56 @@
 #include <R_ext/Visibility.h>
 
 // tinyint.cpp
-SEXP compress(integers x);
-extern "C" SEXP _tinyint_compress(SEXP x) {
+SEXP tinyint_compress_(integers x);
+extern "C" SEXP _tinyint_tinyint_compress_(SEXP x) {
   BEGIN_CPP11
-    return cpp11::as_sexp(compress(cpp11::as_cpp<cpp11::decay_t<integers>>(x)));
+    return cpp11::as_sexp(tinyint_compress_(cpp11::as_cpp<cpp11::decay_t<integers>>(x)));
   END_CPP11
 }
 // tinyint.cpp
-integers get(SEXP ptr, int pos);
-extern "C" SEXP _tinyint_get(SEXP ptr, SEXP pos) {
+integers tinyint_get_(SEXP ptr, int pos);
+extern "C" SEXP _tinyint_tinyint_get_(SEXP ptr, SEXP pos) {
   BEGIN_CPP11
-    return cpp11::as_sexp(get(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr), cpp11::as_cpp<cpp11::decay_t<int>>(pos)));
+    return cpp11::as_sexp(tinyint_get_(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr), cpp11::as_cpp<cpp11::decay_t<int>>(pos)));
   END_CPP11
 }
 // tinyint.cpp
-integers gets(SEXP ptr, integers pos);
-extern "C" SEXP _tinyint_gets(SEXP ptr, SEXP pos) {
+integers tinyint_gets_(SEXP ptr, integers pos);
+extern "C" SEXP _tinyint_tinyint_gets_(SEXP ptr, SEXP pos) {
   BEGIN_CPP11
-    return cpp11::as_sexp(gets(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr), cpp11::as_cpp<cpp11::decay_t<integers>>(pos)));
+    return cpp11::as_sexp(tinyint_gets_(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr), cpp11::as_cpp<cpp11::decay_t<integers>>(pos)));
+  END_CPP11
+}
+// tinyint.cpp
+integers tinyint_size_(SEXP ptr);
+extern "C" SEXP _tinyint_tinyint_size_(SEXP ptr) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(tinyint_size_(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr)));
+  END_CPP11
+}
+// tinyint.cpp
+integers tinyint_index_(SEXP ptr, integers x);
+extern "C" SEXP _tinyint_tinyint_index_(SEXP ptr, SEXP x) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(tinyint_index_(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr), cpp11::as_cpp<cpp11::decay_t<integers>>(x)));
+  END_CPP11
+}
+// tinyint.cpp
+logicals tinyint_contains_(SEXP ptr, integers x);
+extern "C" SEXP _tinyint_tinyint_contains_(SEXP ptr, SEXP x) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(tinyint_contains_(cpp11::as_cpp<cpp11::decay_t<SEXP>>(ptr), cpp11::as_cpp<cpp11::decay_t<integers>>(x)));
   END_CPP11
 }
 
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
-    {"_tinyint_compress", (DL_FUNC) &_tinyint_compress, 1},
-    {"_tinyint_get",      (DL_FUNC) &_tinyint_get,      2},
-    {"_tinyint_gets",     (DL_FUNC) &_tinyint_gets,     2},
+    {"_tinyint_tinyint_compress_", (DL_FUNC) &_tinyint_tinyint_compress_, 1},
+    {"_tinyint_tinyint_contains_", (DL_FUNC) &_tinyint_tinyint_contains_, 2},
+    {"_tinyint_tinyint_get_",      (DL_FUNC) &_tinyint_tinyint_get_,      2},
+    {"_tinyint_tinyint_gets_",     (DL_FUNC) &_tinyint_tinyint_gets_,     2},
+    {"_tinyint_tinyint_index_",    (DL_FUNC) &_tinyint_tinyint_index_,    2},
+    {"_tinyint_tinyint_size_",     (DL_FUNC) &_tinyint_tinyint_size_,     1},
     {NULL, NULL, 0}
 };
 }
