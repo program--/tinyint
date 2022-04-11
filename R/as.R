@@ -20,16 +20,16 @@ as.character.tinyint <- function(x, ...) {
 
 #' @export
 as.list.tinyint <- function(x, ...) {
-    as.list(as.integer(x, ...))
+    lapply(x, as.tinyint)
 }
 
 #' @export
 as.data.frame.tinyint <- function(x, row.names = NULL, optional = FALSE, ...) {
-    V1 <- as.integer(x)
-    as.data.frame(
-        V1,
+    ret <- data.frame(
+        V1 = seq_len(length(x)),
         row.names = row.names,
-        optional = optional,
         ...
     )
+    ret$V1 <- x
+    ret
 }
